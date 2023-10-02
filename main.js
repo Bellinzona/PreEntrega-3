@@ -1,3 +1,4 @@
+// se crean las variables que se van a utilizar
 let btnCarrito = document.querySelector(".container_icono_carrito");
 let containerCarrito = document.querySelector(".container_carrito");
 let containerTotal = document.querySelector(".containerTotal");
@@ -40,13 +41,16 @@ if (productosEnCarritoGuardados.length > 0) {
 bodyStyle.classList.add("transition-background");
 
 
-
+// constructor de Productos
 
 function producto(imagen,titulo,precio){
     this.imagen = imagen
     this.titulo = titulo
     this.precio = precio
 }
+
+
+//Creacion de objetos
 
 const pollo = new producto("https://i.blogs.es/8ceb02/pollo_entero/840_560.jpg","Pechuga de Pollo", 4000)
 productos.push(pollo)
@@ -70,7 +74,7 @@ console.log(productos)
 
 largo = productos.length;
 
-
+// se crean los div segun lo que haya en el array "productos"
     for (let i = 0; i < largo; i++){
         let crearCaja = document.createElement("div");
         crearCaja.classList.add("producto");
@@ -108,6 +112,7 @@ containerCarrito.style.display = "none";
 containerTotal.style.display = "none";
 
 
+//animacion para que el carrito aparezca y el fondo se oscurezca
 btnCarrito.addEventListener("click", function(){
 
     if (containerCarrito.style.display == "none"){
@@ -129,6 +134,9 @@ btnCarrito.addEventListener("click", function(){
     
 })
 
+
+
+// funcion para que todos los botones tengan la misma funcionalidad
 let btnComprar = document.querySelectorAll(".botonComprar")
 btnComprar.forEach(function (boton) {
     boton.addEventListener("click", function () {
@@ -173,6 +181,7 @@ btnComprar.forEach(function (boton) {
 });
 
 
+//funcion para actualizar la altura del carrito
 function actualizarAltura(){
 
     let alturaCarrito = containerCarrito.clientHeight
@@ -185,7 +194,7 @@ function actualizarAltura(){
 
 }
 
-
+// funcion para actalizar el total
 function actualizarTotal(a){
     let detalles = document.querySelector(".detalles");
     let spanTotal = detalles.querySelector("span");
